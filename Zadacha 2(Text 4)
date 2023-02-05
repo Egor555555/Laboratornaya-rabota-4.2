@@ -27,8 +27,8 @@ int main()
 		cout << *p << " ";
 	cout << endl;
 	for (p = deq.begin(); p < deq.end(); p++) {
-		if (*p % 2 != 0)
-			cout << *p << " ";
-		else cout << "-1 " << *p << " ";
+		if (*p % 2 == 0)
+			cout << "-1 " << *p << " ";
+		else cout << *p << " ";
 	}
 }
