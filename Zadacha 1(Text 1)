@@ -1,0 +1,95 @@
+//1.	Реализовать набор основных действий для работы с деком в виде программы, имеющей следующий интерфейс:
+//Выберите действие:
+//1.Добавить элемент в начало
+//2.Добавить элемент в конец
+//3.Удалить элемент из начала
+//4.Удалить элемент с конца
+//5.Вывести элемент с номером N
+//6.Вывести содержимое дека
+//7.Вывести количество элементов
+//8.Очистить дек
+//9.Выход
+
+#include <iostream>
+#include <deque>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    deque <int> deq;
+    cout << "Введите количество элементов в деке: ";
+    int n;
+    cin >> n;
+    cout << "Введите элементы: ";
+    for (int i = 0; i < n; i++)
+    {
+        int a;
+        cin >> a;
+        deq.push_back(a);
+    }
+    int number;
+    cout << "Выберите действие для работы с деком: " << endl;
+    cout << "1. Добавить элемент в начало" << endl;
+    cout << "2. Добавить элемент в конец" << endl;
+    cout << "3. Удалить элемент из начала" << endl;
+    cout << "4. Удалить элемент с конца" << endl;
+    cout << "5. Вывести элемент с номером N" << endl;
+    cout << "6. Вывести содержимое дека" << endl;
+    cout << "7. Вывести количество элементов" << endl;
+    cout << "8. Очистить дек" << endl;
+    cout << "9. Выход" << endl;
+    cin >> number;
+    switch (number) {
+    case 1:
+        cout << "Введите значение элемента: ";
+        int value;
+        cin >> value;
+        deq.push_front(value);
+        break;
+    case 2:
+        cout << "Введите значение элемента: ";
+        int value1;
+        cin >> value1;
+        deq.push_back(value1);
+        break;
+    case 3:
+        deq.pop_front();
+        break;
+    case 4:
+        deq.pop_back();
+        break;
+    case 5:
+        cout << "Введите номер элемента: ";
+        int N;
+        cin >> N;
+        cout << deq.at(N) << endl;
+        break;
+    case 6:
+        for (int i = 0; i < deq.size(); i++)
+            cout << deq[i] << " ";
+        return 0;
+    case 7:
+        cout << deq.size() << endl;
+        break;
+    case 8:
+        deq.clear();
+        break;
+    case 9:
+        return 0;
+    }
+    cout << "Вывести содержимое дека? (1 - Да, 0 - Нет): ";
+    int print;
+    cin >> print;
+    if (print)
+    {
+        int size = deq.size();
+        for (size; size > 0; size--)
+        {
+            cout << deq.front() << " ";
+            deq.pop_front();
+        }
+    }
+}
